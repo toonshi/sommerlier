@@ -13,3 +13,4 @@ langchain-community
 streamlit
 python-dotenv
 tqdm
+tiktoken
