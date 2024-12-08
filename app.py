@@ -56,7 +56,7 @@ def save_interaction(query, response):
 
 with chat_col:
     # Chat interface
-    st.write("### Ask the curve")
+    st.write("### Beam responsibly")
     
     # Display chat messages
     for message in st.session_state.messages:
@@ -65,7 +65,7 @@ with chat_col:
     
     # Chat input
     if st.session_state.current_user and st.session_state.current_topic:
-        if prompt := st.chat_input("Ask darling"):
+        if prompt := st.chat_input("Ask the curve "):
             # Add user message to chat history
             st.session_state.messages.append({"role": "user", "content": prompt})
             
@@ -137,23 +137,23 @@ with sidebar_col:
                 st.session_state.setup_complete = True
                 st.sidebar.success("Documents processed successfully!")
 
-with progress_col:
-    st.markdown("### Learning Progress")
+# with progress_col:
+#     st.markdown("### Learning Progress")
     
-    if st.session_state.current_user and st.session_state.user_profile:
-        # Get user stats
-        stats = st.session_state.user_profile.get_progress_stats()
+#     if st.session_state.current_user and st.session_state.user_profile:
+#         # Get user stats
+#         stats = st.session_state.user_profile.get_progress_stats()
         
-        # Display overall stats
-        st.metric("Total Questions Asked", stats["total_questions"])
-        st.metric("Understanding Score", f"{stats['understanding_score']:.1f}%")
+#         # Display overall stats
+#         st.metric("Total Questions Asked", stats["total_questions"])
+#         st.metric("Understanding Score", f"{stats['understanding_score']:.1f}%")
         
-        # Display topic progress
-        st.markdown("#### Topics Progress")
-        for topic, topic_stats in stats["topics"].items():
-            with st.expander(topic):
-                st.write(f"Questions Asked: {topic_stats['questions_asked']}")
-                if topic_stats['last_interaction']:
-                    st.write(f"Last Studied: {topic_stats['last_interaction']}")
-    else:
-        st.info("Please log in to see your progress!")
+#         # Display topic progress
+#         st.markdown("#### Topics Progress")
+#         for topic, topic_stats in stats["topics"].items():
+#             with st.expander(topic):
+#                 st.write(f"Questions Asked: {topic_stats['questions_asked']}")
+#                 if topic_stats['last_interaction']:
+#                     st.write(f"Last Studied: {topic_stats['last_interaction']}")
+#     else:
+#         st.info("Please log in to see your progress!")
