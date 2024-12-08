@@ -1,5 +1,5 @@
 import streamlit as st
-from rag_query_streamlit import query_knowledge_base
+from rag_query import query_knowledge_base
 from pdf_loader import load_pdfs_to_chroma
 import os
 from dotenv import load_dotenv
