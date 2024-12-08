@@ -14,13 +14,13 @@ load_dotenv()
 
 # Page config
 st.set_page_config(
-    page_title="Study Assistant",
+    page_title="Curve",
     page_icon="📚",
     layout="wide"
 )
 
 # Title
-st.title("Study Assistant: Learn Smarter")
+st.title("Curve")
 
 # Initialize session states
 if 'messages' not in st.session_state:
@@ -56,7 +56,7 @@ def save_interaction(query, response):
 
 with chat_col:
     # Chat interface
-    st.write("### Chat with your documents")
+    st.write("### Ask the curve")
     
     # Display chat messages
     for message in st.session_state.messages:
@@ -65,7 +65,7 @@ with chat_col:
     
     # Chat input
     if st.session_state.current_user and st.session_state.current_topic:
-        if prompt := st.chat_input("Ask a question about your documents"):
+        if prompt := st.chat_input("Ask darling"):
             # Add user message to chat history
             st.session_state.messages.append({"role": "user", "content": prompt})
             
@@ -85,7 +85,7 @@ with chat_col:
                     {"role": "assistant", "content": response}
                 )
     else:
-        st.info("Please select a username and topic to start chatting!")
+        st.info("Please enter your username and topic to start chatting!")
 
 with sidebar_col:
     st.sidebar.title("Study Settings")
